@@ -1,11 +1,16 @@
 import { useState } from 'react';
 
 function Register() {
+    const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("Hesabınız başarıyla oluşturuldu! Hoş geldiniz 🎉");
+    window.location.href = "/";
+  };
     const [accountType, setAccountType] = useState('bireysel');
     return (
         <div className="form-card">
             <h2>Kayıt Ol</h2>
-            <form className="listing-form">
+            <form className="listing-form" onSubmit={handleSubmit}>
                 <label>
                     Hesap Türü:
                     <select value={accountType} onChange={(e) => setAccountType(e.target.value)} >
